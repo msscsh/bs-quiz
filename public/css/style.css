@@ -1,0 +1,39 @@
+body {
+  background-color: #1f1f1f;
+  color: white;
+  font-family: 'Brawler', sans-serif;
+}
+#form {
+  background-color: #3d3d3d;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px #1f1f1f;
+}
+label {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+input[type="text"] {
+  padding: 10px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 10px;
+  background-color: #3d3d3d;
+  color: white;
+}
+input[type="submit"] {
+  background-color: #ffa600;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px #1f1f1f;
+}
+input[type="submit"]:hover {
+  background-color: #ffc600;
+}
