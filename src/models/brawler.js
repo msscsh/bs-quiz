@@ -7,6 +7,4 @@ function Brawler(_id, name, rarity, type, attack, health) {
     this.health = health;
 }
 
-module.exports = { Brawler }
-
-
+module.exports = new Brawler();

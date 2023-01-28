@@ -1,39 +1,142 @@
-body {
-  background-color: #1f1f1f;
-  color: white;
-  font-family: 'Brawler', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: medium;
 }
-#form {
-  background-color: #3d3d3d;
+
+body {
+  background-color: #F2EFEA;
+  font-family: 'Acropolis', sans-serif;
+  color: #333333;
+}
+
+h3 {
+  font-family: 'Acropolis', sans-serif;
+  color: #333333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 100%;
+  color: #333333;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 2px 2px 10px #1f1f1f;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+
 label {
   font-size: 1.2em;
   font-weight: bold;
-}
-input[type="text"] {
-  padding: 10px;
-  font-size: 1.2em;
-  border-radius: 5px;
-  border: none;
   margin-bottom: 10px;
-  background-color: #3d3d3d;
-  color: white;
+  display: block;
+  width: 150px;
+  margin-right: 10px;
+  text-align: right;
+  font-family: 'Acropolis', sans-serif;
+  color: #333333;
 }
-input[type="submit"] {
-  background-color: #ffa600;
-  color: white;
+
+input[type="text"], input[type="submit"] {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
   border: none;
-  padding: 10px 20px;
-  font-size: 1.2em;
-  font-weight: bold;
-  border-radius: 5px;
-  margin-top: 10px;
-  cursor: pointer;
-  box-shadow: 2px 2px 10px #1f1f1f;
+  background-color: #F2EFEA;
+  font-size: medium;
+  margin-bottom: 10px;
+  color: #333333;
 }
-input[type="submit"]:hover {
-  background-color: #ffc600;
+
+input[type="submit"] {
+  background-color: #F8A858;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: medium;
+  padding: 5px;
+  color: #333333;
+}
+
+.form-area {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.button-area {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+  color: #333333;
+}
+
+.button {
+  padding: 12px 20px;
+  background-color: #F8A858;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #333333;
+}
+
+.btn-enviar {
+  margin-top: 10px;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: #F2EFEA;
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 60px;
+  background-color: rgb(246, 212, 143);
+  margin: 10px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  color: #333333;
+}
+
+.card-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.panel {
+  position: fixed; /* para que o painel fique fixo na tela */
+  top: 0; /* para que o painel fique no topo */
+  bottom: 0; /* para que o painel ocupe todo o espaço vertical */
+  width: 20%; /* para que o painel ocupe 20% do espaço horizontal */
+  left: 0; /* para que o painel fique na esquerda */
+  background-color: #333; /* para definir a cor de fundo do painel */
+  color: #fff; /* para definir a cor do texto do painel */
+  padding: 20px; /* para dar um espaçamento interno ao painel */
+  font-family: 'Acropolis', sans-serif;
 }

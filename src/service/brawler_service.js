@@ -10,14 +10,15 @@ class BrawlerService {
         brawler.type = brawlerBody.type;
         brawler.attack = brawlerBody.attack;
         brawler.health = brawlerBody.health;
-        console.log(brawler);
-        const brawlerAtualizado = await brawlerRepository.updateBrawler(brawler);
+        await brawlerRepository.updateBrawler(brawler);
+        const brawlerAtualizado = await brawlerRepository.findBrawlerByName(brawler.name);
         return brawlerAtualizado;
     };
 
     async procurarBrawlerPorNome(brawlerName) {
         if (!brawlerName) {
-            throw new Error('Nome é obrigatório');
+            console.log('usando name default');
+            brawlerName = 'SHELLY';
         }
         const brawler = await brawlerRepository.findBrawlerByName(brawlerName);
         if (!brawler) {
@@ -32,6 +33,22 @@ class BrawlerService {
 
     async removerTodosOsBrawlers() {
         const result = await brawlerRepository.deleteAllBrawlers();
+    };
+
+    async navegarParaOProximoBrawlerDaFila(brawlerName) {
+        if (!brawlerName) {
+            console.log('usando name default');
+            brawlerName = 'SHELLY';
+        }
+        const brawler = await brawlerRepository.findBrawlerByName(brawlerName);
+        const nextBrawler = await brawlerRepository.next(brawler.id);
+        return nextBrawler;
+    };
+
+    async navegarParaOAnteriorBrawlerDaFila(brawlerName) {
+        const brawler = await brawlerRepository.findBrawlerByName(brawlerName);
+        const nextBrawler = await brawlerRepository.back(brawler.id);
+        return nextBrawler;
     };
 
 }

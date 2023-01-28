@@ -32,7 +32,33 @@ class BrawlerController {
 
     async fazerBackupMongoParaFile(request, response) {
         try {
-            throw new Error(`Não implementado!`);
+            throw new Error('Não implementado!');
+        } catch (error) {
+            response.status(500).send(error.message);
+        }
+    }
+
+    async navegarParaOProximoBrawlerDaFila(request, response) {
+        try {
+            const brawler = await brawlerService.navegarParaOProximoBrawlerDaFila(request.query.name);
+
+            if( brawler ) {
+                response.render('brawler', { brawler });
+            }
+
+        } catch (error) {
+            response.status(500).send(error.message);
+        }
+    }
+
+    async navegarParaOAnteriorBrawlerDaFila(request, response) {
+        try {
+            const brawler = await brawlerService.navegarParaOAnteriorBrawlerDaFila(request.query.name);
+
+            if( brawler ) {
+                response.render('brawler', { brawler });
+            }
+
         } catch (error) {
             response.status(500).send(error.message);
         }
