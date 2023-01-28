@@ -13,18 +13,7 @@ app.use(express.static('public'));
 
 app.get("/brawler", brawlerController.procurarBrawlerPorNome);
 app.post("/brawler", brawlerController.atualizarBrawler);
-
-//  async (request, response) => {
-//   try {
-//     console.log(request.body.name);
-//     const brawler = await retornarBrawlersPorNome(request.body.name);
-//     const brawlerAtualizado = await atualizaBrawlerDoJSONNoMongo(brawler);
-//     console.log(brawlerAtualizado);
-
-//     response.render('brawler', { brawler: brawlerAtualizado });
-//   } catch (error) {
-//     response.status(500).send(error);
-//   }
-// });
+app.get("/restore", brawlerController.restaurarFileJsonDeBrawlers);
+app.get("/backup", brawlerController.fazerBackupMongoParaFile);
 
 module.exports = app;
