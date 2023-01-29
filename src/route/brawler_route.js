@@ -13,6 +13,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../views'));
 app.use(express.static('public'));
 
+app.get("/", brawlerController.index);
 app.get("/brawler", brawlerController.procurarBrawlerPorNome);
 app.post("/brawler", brawlerController.atualizarBrawler);
 app.get("/brawler/next", brawlerController.navegarParaOProximoBrawlerDaFila);

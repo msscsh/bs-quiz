@@ -5,8 +5,9 @@ class BrawlerController {
 
     async atualizarBrawler(request, response) {
         try {
-            const brawlerAtualizado = await brawlerService.atualizarBrawler(request.body);
-            response.render('brawler', { brawlerAtualizado });
+            const brawler = await brawlerService.atualizarBrawler(request.body);
+            let state = 'brawler';
+            response.render('index', { state, brawler });
         } catch (error) {
             response.status(500).send(error.message);
         }
@@ -15,7 +16,8 @@ class BrawlerController {
     async procurarBrawlerPorNome(request, response) {
         try {
             const brawler = await brawlerService.procurarBrawlerPorNome(request.query.name);
-            response.render('brawler', { brawler });
+            let state = 'brawler';
+            response.render('index', { state, brawler });
         } catch (error) {
             response.status(500).send(error.message);
         }
@@ -43,7 +45,8 @@ class BrawlerController {
             const brawler = await brawlerService.navegarParaOProximoBrawlerDaFila(request.query.name);
 
             if( brawler ) {
-                response.render('brawler', { brawler });
+                let state = 'brawler';
+                response.render('index', { state, brawler });
             }
 
         } catch (error) {
@@ -56,9 +59,19 @@ class BrawlerController {
             const brawler = await brawlerService.navegarParaOAnteriorBrawlerDaFila(request.query.name);
 
             if( brawler ) {
-                response.render('brawler', { brawler });
+                let state = 'brawler';
+                response.render('index', { state, brawler });
             }
 
+        } catch (error) {
+            response.status(500).send(error.message);
+        }
+    }
+
+    async index(request, response) {
+        try {
+            const brawler = await brawlerService.procurarBrawlerPorNome('SHELLY');
+            response.render('index', { undefined, brawler });
         } catch (error) {
             response.status(500).send(error.message);
         }

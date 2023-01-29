@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Enviar dados para uma URL</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+      <div class="panel" style="width: 15%;">Conteúdo do painel</div>
+      <div class="container center" style="width: 90%;" >
+
+        <% if(typeof(state) =="undefined"){ %>
+          <h1>Index</h1>
+        <% } else if(state === 'brawler') { %>
+          <%- include('brawler/brawler.ejs') %>
+        <% } else { %>
+          <h1>Error de path</h1>
+        <% } %>
+
+      </div>
+
+  </body>
+</html>

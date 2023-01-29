@@ -1,0 +1,63 @@
+<div style="width: 100% !important;">
+  <div class="button-area" style="width: 100% !important;">
+    <form action="/brawler" method="get" enctype="application/json" id="form">
+      <input type="text" id="name" name="name" placeholder="Digite o nome do brawler">
+      <input class="btn-pesquisar" type="submit" value="Pesquisar">
+    </form>
+  </div>
+  <div class="form-area" style="width: 100% !important;">
+    <form action="/brawler" method="post" enctype="application/json" id="form">
+      <div class="form-item">
+        <label for="name">Nome</label>
+        <input type="text" id="name" name="name" placeholder="Informe o nome do brawler" value="<%= brawler.name %>">
+      </div>
+      <div class="form-item">
+        <label for="rarity">Raridade</label>
+        <input type="text" id="rarity" name="rarity" placeholder="Informe a raridade do brawler" value="<%= brawler.rarity %>">
+      </div>
+      <div class="form-item">
+        <label for="type">Tipo</label>
+        <input type="text" id="type" name="type" placeholder="Informe o tipo do brawler" value="<%= brawler.type %>">
+      </div>
+      <div class="form-item">
+        <label for="attack">Ataque</label>
+        <input type="text" id="attack" name="attack" placeholder="Informe o valor de ataque do brawler" value="<%= brawler.attack %>">
+      </div>
+      <div class="form-item">
+        <label for="health">Vida</label>
+        <input type="text" id="health" name="health" placeholder="Informe a vida do brawler" value="<%= brawler.health %>">
+      </div>
+
+      <div class="form-item" style="width: 100% !important;">
+        <label>Poder Estrela</label>
+        <div class="card-list" style="margin-top: 5px; border: solid; border-radius: 10px; border-color:#cc9305; border-width: thin; width: 80%; padding-right: 10px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
+            <% for(var i=0; i < brawler.starPowers.length; i++) { %>
+                <div class="card">
+                  <%= brawler.starPowers[i].name %>
+                </div>
+            <% } %>
+        </div>
+      </div>
+      
+      <div class="form-item" style="padding-top: 10px; width: 100% !important;" >
+        <label>Gadget</label>
+        <div class="card-list" style="margin-top: 5px; border: solid; border-radius: 10px; border-color:#cc9305; border-width: thin; width: 80%;  padding-right: 10px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
+            <% for(var i=0; i < brawler.gadgets.length; i++) { %>
+                <div class="card">
+                  <%= brawler.gadgets[i].name %>
+                </div>
+            <% } %>
+        </div>
+      </div>
+
+
+      <div class="button-area" style="width: 100% !important;">
+        <input class="btn-enviar" type="submit" value="Enviar">
+      </div>
+    </form>
+  </div>
+  <div class="button-area" style="margin-top: 40px;">
+    <a href="/brawler/back?name=<%= brawler.name %>" class="button">Anterior</a>
+    <a href="/brawler/next?name=<%= brawler.name %>" class="button" style="margin-left: 50%;" >Próximo</a>
+  </div>
+</div>
