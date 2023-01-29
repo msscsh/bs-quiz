@@ -5,13 +5,28 @@
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
-      <div class="panel" style="width: 15%;">Conteúdo do painel</div>
-      <div class="container center" style="width: 90%;" >
+      <div class="panel" style="width: 20%;">
+        <h3 style="margin-bottom: 30px;">Menu</h3>
+        <ul class="menu-list" style="display: flex; flex-direction: column;" >
+          <a href="/" style="width: 95%;">
+            <li class="menu-item" style="display: inline-block;">Home</li>
+          </a>
+          <a href="/brawler" style="width: 95%;">
+            <li class="menu-item" style="display: inline-block;">Brawlers</li>
+          </a>
+          <a href="/counter" style="width: 95%;">
+            <li class="menu-item" style="display: inline-block;">Counters</li>
+          </a>
+        </ul>
+      </div>
+      <div class="container center" style="width: 80%;" >
 
         <% if(typeof(state) =="undefined"){ %>
           <h1>Index</h1>
         <% } else if(state === 'brawler') { %>
           <%- include('brawler/brawler.ejs') %>
+        <% } else if(state === 'counter') { %>
+          <%- include('counter/counter.ejs') %>
         <% } else { %>
           <h1>Error de path</h1>
         <% } %>
